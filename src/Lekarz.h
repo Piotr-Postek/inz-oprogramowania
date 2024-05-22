@@ -1,7 +1,6 @@
 #ifndef LEKARZ_H
 #define LKEARZ_H
 
-#include <iostream>
 #include <string>
 
 using namespace std;

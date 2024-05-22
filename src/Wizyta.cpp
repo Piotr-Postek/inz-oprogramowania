@@ -4,40 +4,45 @@
 
 using namespace std;
 
-void Wizyta::wyswietl() {
-    Pacjent::wyswietl();
-    Lekarz::wyswietl();
+Wizyta::Wizyta(Pacjent pacjent, Lekarz lekarz, string termin, StatusWizyty status_wizyty, int koszt)
+    :pacjent(pacjent), lekarz(lekarz)
+{
+    this->termin = termin;
+    this->status_wizyty = status_wizyty;
+    this->koszt = koszt;
+
+};
+
+void Wizyta::wyswietl(){
+    pacjent.wyswietl();
+    lekarz.wyswietl();
     cout << "Termin: " << termin << endl;
     cout << "Status wizyty: " << status_wizyty << endl;
     cout << "Koszt: " << koszt << endl;
-}
+};
 
-Recepta::Recepta(string imie, string nazwisko, unsigned long long pesel, string data_urodzenia, string m_zamieszkania,
-                 string m_urodzenia, int nr_telefonu, string imie_lekarza, string nazwisko_lekarza, string specjalizacja,
-                 int ID_lekarza, int gabinet, string termin, char status_wizyty, int koszt, string lek, int ilosc, string dawkowanie)
-    : Wizyta(imie, nazwisko, pesel, data_urodzenia, m_zamieszkania, m_urodzenia, nr_telefonu, imie_lekarza, nazwisko_lekarza,
-             specjalizacja, ID_lekarza, gabinet, termin, status_wizyty, koszt) {
+Recepta::Recepta(Wizyta wizyta, string lek, int ilosc, string dawkowanie)
+        :wizyta(wizyta)
+{
     this->lek = lek;
     this->ilosc = ilosc;
     this->dawkowanie = dawkowanie;
-}
+};
 
-void Recepta::wyswietl() {
-    Wizyta::wyswietl();
+void Recepta::wyswietl(){
+    wizyta.wyswietl();
     cout << "Lek: " << lek << endl;
     cout << "Ilosc: " << ilosc << endl;
     cout << "Dawkowanie: " << dawkowanie << endl;
-}
+};
 
-Skierowanie::Skierowanie(string imie, string nazwisko, unsigned long long pesel, string data_urodzenia, string m_zamieszkania,
-                         string m_urodzenia, int nr_telefonu, string imie_lekarza, string nazwisko_lekarza, string specjalizacja,
-                         int ID_lekarza, int gabinet, string termin, char status_wizyty, int koszt, string badanie)
-    : Wizyta(imie, nazwisko, pesel, data_urodzenia, m_zamieszkania, m_urodzenia, nr_telefonu, imie_lekarza, nazwisko_lekarza,
-             specjalizacja, ID_lekarza, gabinet, termin, status_wizyty, koszt) {
+Skierowanie::Skierowanie(Wizyta wizyta, string badanie)
+        :wizyta(wizyta)
+{
     this->badanie = badanie;
-}
+};
 
-void Skierowanie::wyswietl() {
-    Wizyta::wyswietl();
+void Skierowanie::wyswietl(){
+    wizyta.wyswietl();
     cout << "Badanie: " << badanie << endl;
-}
+};

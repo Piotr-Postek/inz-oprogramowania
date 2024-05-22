@@ -5,12 +5,12 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(../src)
 
-add_executable(inz-oprogramowania ../main.cpp)
-
-#../src/helpers.h
-#../src/Lekarz.cpp
-#../src/Lekarz.h
-#../src/Pacjent.cpp
-#../src/Pacjent.h
-#../src/Wizyta.cpp
-#../src/Wizyta.h
+add_executable(inz-oprogramowania ../src/helpers.h
+        ../src/Lekarz.cpp
+        ../src/Lekarz.h
+        ../src/Pacjent.cpp
+        ../src/Pacjent.h
+        ../src/Wizyta.cpp
+        ../src/Wizyta.h
+        ../main.cpp
+        helpers.cpp)
