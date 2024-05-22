@@ -16,3 +16,7 @@ void Lekarz::wyswietl() {
     cout << "Gabinet: " << gabinet << endl;
 }
 
+// Lekarz::~Lekarz() {
+//     cout << "Destruktor klasy Lekarz" << endl;
+// }
+

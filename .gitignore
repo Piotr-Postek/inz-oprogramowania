@@ -33,3 +33,6 @@
 
 # Config files
 .vscode
+
+# UML files
+VPProjects/*vpp.*
