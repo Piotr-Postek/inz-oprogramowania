@@ -1,5 +1,9 @@
+//
+// Created by piotr on 23.05.2024.
+//
+
 #ifndef LEKARZ_H
-#define LKEARZ_H
+#define LEKARZ_H
 
 #include <string>
 
@@ -7,15 +11,19 @@ using namespace std;
 
 class Lekarz {
 private:
-    string imie;
-    string nazwisko;
-    string specjalizacja;
-    int ID_lekarza;
+    std::string imie;
+    std::string nazwisko;
+    std::string specjalizacja;
+    int IDLekarza;
     int gabinet;
+
 public:
-    Lekarz(){}; // konstruktor domyślny
-    Lekarz(string imie, string nazwisko, string specjalizacja, int ID_lekarza, int gabinet);
-    void wyswietl();
+    Lekarz(std::string imie, std::string nazwisko, std::string specjalizacja, int IDLekarza, int gabinet);
+    void wyswietlDane() const;
+    string getImie() const { return imie; }
+    string getNazwisko() const { return nazwisko; }
+    string getSpecjalizacja() const { return specjalizacja; }
+
 };
 
-#endif
+#endif // LEKARZ_H

@@ -1,20 +1,14 @@
+//
+// Created by piotr on 23.05.2024.
+//
 #include <iostream>
-
 #include "Lekarz.h"
 
-Lekarz::Lekarz(string imie, string nazwisko, string specjalizacja, int ID_lekarza, int gabinet) {
-    this->imie = imie;
-    this->nazwisko = nazwisko;
-    this->specjalizacja = specjalizacja;
-    this->ID_lekarza = ID_lekarza;
-    this->gabinet = gabinet;
-};
+using namespace std;
 
-void Lekarz::wyswietl(){
-    cout << "Imie: " << imie << endl;
-    cout << "Nazwisko: " << nazwisko << endl;
-    cout << "Specjalizacja: " << specjalizacja << endl;
-    cout << "ID lekarza: " << ID_lekarza << endl;
-    cout << "Gabinet: " << gabinet << endl;
-};
+Lekarz::Lekarz(std::string imie, std::string nazwisko, std::string specjalizacja, int IDLekarza, int gabinet)
+    : imie(imie), nazwisko(nazwisko), specjalizacja(specjalizacja), IDLekarza(IDLekarza), gabinet(gabinet) {}
 
+void Lekarz::wyswietlDane() const{
+    cout << "Dane lekarza: " << this->imie << " " << this->nazwisko << ", " << this->specjalizacja << ", " << this->IDLekarza << ", " << this->gabinet << endl;
+}

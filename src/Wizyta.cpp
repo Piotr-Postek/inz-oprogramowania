@@ -1,48 +1,55 @@
+//
+// Created by piotr on 23.05.2024.
+//
+
 #include <iostream>
-#include <string>
 #include "Wizyta.h"
+#include "Recepta.h"
+#include "Skierowanie.h"
 
 using namespace std;
 
-Wizyta::Wizyta(Pacjent pacjent, Lekarz lekarz, string termin, StatusWizyty status_wizyty, int koszt)
-    :pacjent(pacjent), lekarz(lekarz)
-{
-    this->termin = termin;
-    this->status_wizyty = status_wizyty;
-    this->koszt = koszt;
+Wizyta::Wizyta(Termin* termin, Lekarz* lekarz, Pacjent* pacjent, char status, int koszt)
+    : termin(termin), lekarz(lekarz), pacjent(pacjent), status(status), koszt(koszt) {}
 
-};
+void Wizyta::wystawRecepte() {
+    string lek;
+    int ilosc;
+    string dawka;
 
-void Wizyta::wyswietl(){
-    pacjent.wyswietl();
-    lekarz.wyswietl();
-    cout << "Termin: " << termin << endl;
-    cout << "Status wizyty: " << status_wizyty << endl;
-    cout << "Koszt: " << koszt << endl;
-};
+    cout << "Podaj nazwę leku: ";
+    cin >> lek;
+    cout << "Podaj ilość: ";
+    cin >> ilosc;
+    cout << "Podaj dawkę: ";
+    cin >> dawka;
 
-Recepta::Recepta(Wizyta wizyta, string lek, int ilosc, string dawkowanie)
-        :wizyta(wizyta)
-{
-    this->lek = lek;
-    this->ilosc = ilosc;
-    this->dawkowanie = dawkowanie;
-};
+    Recepta* recepta = new Recepta(this, lek, ilosc, dawka);
+    recepta->wyswietlRecepte();
+    // You can store or manage the created Recepta object as needed
+}
 
-void Recepta::wyswietl(){
-    wizyta.wyswietl();
-    cout << "Lek: " << lek << endl;
-    cout << "Ilosc: " << ilosc << endl;
-    cout << "Dawkowanie: " << dawkowanie << endl;
-};
+void Wizyta::wystawSkierowanie() {
+    //Skierowanie(Lekarz* lekarz, Pacjent* pacjent, std::string badanie);
+    string badanie;
+    cout << "Podaj nazwę badania: ";
+    cin >> badanie;
 
-Skierowanie::Skierowanie(Wizyta wizyta, string badanie)
-        :wizyta(wizyta)
-{
-    this->badanie = badanie;
-};
+    Skierowanie* skierowanie = new Skierowanie(lekarz, pacjent, badanie);
+    skierowanie->wyswietlSkierowanie();
+}
 
-void Skierowanie::wyswietl(){
-    wizyta.wyswietl();
-    cout << "Badanie: " << badanie << endl;
-};
+void Wizyta::wystawRachunek() {
+
+    int koszt;
+    cout << "Podaj koszt wizyty: ";
+    cin >> koszt;
+
+}
+
+void Wizyta::pokazWizyte() const {
+    cout << "Wizyta: Termin: " << termin
+              << ", Lekarz: " << lekarz->getImie() << " " << lekarz->getNazwisko()
+              << ", Pacjent: " << pacjent->getImie() << " " << pacjent->getNazwisko()
+              << ", Status: " << status << ", Koszt: " << koszt << endl;
+}

@@ -1,34 +1,33 @@
+//
+// Created by piotr on 23.05.2024.
+//
+
 #ifndef PACJENT_H
 #define PACJENT_H
 
-#include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
-class Pacjent{
+class Wizyta;
+
+class Pacjent {
 private:
-    string imie;
-    string nazwisko;
-    unsigned long long pesel;
+    std::string imie;
+    std::string nazwisko;
+    unsigned long long PESEL;
+    vector<Wizyta*> wizyty;
 
 public:
-    Pacjent(){}; // konstruktor domyślny
-    Pacjent(string imie, string nazwisko, unsigned long long pesel);
-    void wyswietl();
+    Pacjent(std::string imie, std::string nazwisko, unsigned long long PESEL);
+    int umowWizyte(Wizyta* wizyta);
+    void odwolajWizyte(Wizyta* wizyta);
+    void sprawdzWizyte();
+    void modyfikujDane();
+    void wyswietlDane();
+    string getNazwisko() const { return nazwisko; }
+    string getImie() const { return imie; }
 };
 
-class KartaPacjenta : public Pacjent{
-private:
-    Pacjent pacjent;
-    string data_urodzenia;
-    string m_zamieszkania;
-    string m_urodzenia;
-    int nr_telefonu;
-public:
-    KartaPacjenta(){}; // konstruktor domyślny
-    KartaPacjenta(Pacjent pacjent, string data_urodzenia, string m_zamieszkania, string m_urodzenia, int nr_telefonu);
-    void wyswietl();
-};
-
-#endif
+#endif // PACJENT_H
