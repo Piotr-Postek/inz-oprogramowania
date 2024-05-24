@@ -1,7 +1,3 @@
-//
-// Created by piotr on 23.05.2024.
-//
-
 #ifndef PACJENT_H
 #define PACJENT_H
 
@@ -14,20 +10,27 @@ class Wizyta;
 
 class Pacjent {
 private:
-    std::string imie;
-    std::string nazwisko;
+    string imie;
+    string nazwisko;
     unsigned long long PESEL;
-    vector<Wizyta*> wizyty;
+    vector<Wizyta *> wizyty;
 
 public:
-    Pacjent(std::string imie, std::string nazwisko, unsigned long long PESEL);
-    int umowWizyte(Wizyta* wizyta);
-    void odwolajWizyte(Wizyta* wizyta);
-    void sprawdzWizyte();
-    void modyfikujDane();
-    void wyswietlDane();
-    string getNazwisko() const { return nazwisko; }
-    string getImie() const { return imie; }
+    Pacjent() {
+    }; //konstruktor domyslny
+    Pacjent(string imie, string nazwisko, unsigned long long PESEL); //konstruktor
+    int umowWizyte(Wizyta *wizyta); //umawia wizyte
+    void odwolajWizyte(int pozycja); //odwoluje wizyte
+    void sprawdzWizyte() const; //sprawdza wizyte
+    void sprawdzRecepte(); //sprawdza recepte
+    void sprawdzSkierowanie(); //sprawdza skierowanie
+    void modyfikujDane(); //modyfikuje dane pacjenta
+    void wyswietlDane(); //wyswietla dane pacjenta
+    string getNazwisko() const { return nazwisko; } //zwraca nazwisko pacjenta
+    string getImie() const { return imie; } //zwraca imie pacjenta
+    unsigned long long getPESEL() const { return PESEL; } //zwraca PESEL pacjenta
 };
 
-#endif // PACJENT_H
+extern Pacjent pacjent;
+
+#endif

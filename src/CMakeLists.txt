@@ -23,4 +23,10 @@ add_executable(inz-oprogramowania
         Skierowanie.h
         Termin.cpp
         Termin.h
+        ../panel/panelPacjenta.cpp
+        ../panel/panelLekarza.cpp
+        ../panel/panelRecepcjonistki.cpp
+        ../panel/panelLekarza.h
+        ../panel/panelPacjenta.h
+        ../panel/panelRecepcjonistki.h
 )

@@ -1,7 +1,3 @@
-//
-// Created by piotr on 23.05.2024.
-//
-
 #ifndef SKIEROWANIE_H
 #define SKIEROWANIE_H
 
@@ -11,12 +7,13 @@
 
 class Skierowanie {
 private:
-    Wizyta* wizyta;
-    std::string badanie;
+    Wizyta *wizyta;
+    string badanie;
 
 public:
-    Skierowanie(Lekarz* lekarz, Pacjent* pacjent, std::string badanie);
-    void wyswietlSkierowanie();
+    Skierowanie(Lekarz *lekarz, string badanie); //konstruktor
+
+    void wyswietlSkierowanie(); //wyswietla skierowanie
 };
 
-#endif // SKIEROWANIE_H
+#endif

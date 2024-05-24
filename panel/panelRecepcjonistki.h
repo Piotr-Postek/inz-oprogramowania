@@ -1,0 +1,6 @@
+#ifndef PANELRECEPCJONISTKI_H
+#define PANELRECEPCJONISTKI_H
+
+void panelRecepcjonistki();
+
+#endif //PANELRECEPCJONISTKI_H

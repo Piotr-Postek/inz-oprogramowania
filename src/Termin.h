@@ -1,7 +1,3 @@
-//
-// Created by piotr on 23.05.2024.
-//
-
 #ifndef TERMIN_H
 #define TERMIN_H
 
@@ -14,9 +10,16 @@ private:
     string termin;
 
 public:
-    Termin(string termin);
-    string getTermin() const;
-    void display() const;
+    Termin(string termin); //konstruktor
+
+    string getTermin() const;   //zwraca termin
+
+    void wyswietl() const;  //wyswietla termin
+
+
+    friend ostream &operator<<(ostream &os, const Termin &termin);  //przeciazenie operatora <<
 };
 
-#endif // TERMIN_H
+extern Termin termin;
+
+#endif

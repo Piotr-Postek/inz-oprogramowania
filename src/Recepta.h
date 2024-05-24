@@ -1,7 +1,3 @@
-//
-// Created by piotr on 23.05.2024.
-//
-
 #ifndef RECEPTA_H
 #define RECEPTA_H
 
@@ -12,14 +8,15 @@ using namespace std;
 
 class Recepta {
 private:
-    Wizyta* wizyta;
+    Wizyta *wizyta;
     string lek;
     int ilosc;
     string dawka;
 
 public:
-    Recepta(Wizyta* wizyta, string lek, int ilosc, string dawka);
-    void wyswietlRecepte() const;
+    Recepta(Wizyta *wizyta, string lek, int ilosc, string dawka); //konstruktor
+
+    void wyswietlRecepte() const; //wyswietla recepte
 };
 
-#endif // RECEPTA_H
+#endif

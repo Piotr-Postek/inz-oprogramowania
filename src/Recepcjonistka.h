@@ -1,6 +1,3 @@
-//
-// Created by piotr on 23.05.2024.
-//
 #ifndef RECEPCJONISTKA_H
 #define RECEPCJONISTKA_H
 #include "Lekarz.h"
@@ -9,12 +6,18 @@
 
 class Recepcjonistka {
 private:
-    std::vector<Lekarz*> lekarze;
+    vector<Lekarz *> lekarze; // tablica lekarzy
+    vector<Pacjent *> pacjenci; // tablica pacjentow
 public:
-    void dodajLekarza(Lekarz* lekarz);
-    void usunLekarza(Lekarz* lekarz);
-    void rozliczenieWizyty(Wizyta* wizyta);
-    void wyswietlLekarzy() const;
+    void dodajLekarza(Lekarz *lekarz); //dodaje lekarza do tablicy lekarzy
+    void usunLekarza(Lekarz *lekarz); //usuwa lekarza z tablicy lekarzy
+    void rozliczenieWizyty(Wizyta *wizyta); //rozlicza wizyte
+    void wyswietlLekarzy() const; //wyswietla liste lekarzy
+    void dodajPacjenta(Pacjent *pacjent); //dodaje pacjenta do tablicy pacjentow
+    Pacjent *znajdzPacjenta(unsigned long long pesel); //znajduje pacjenta po peselu
+    const vector<Lekarz *> &getLekarze() const; //zwraca tablice lekarzy
+    void displayTerminyLekarzy() const; //wyswietla terminy lekarzy
 };
 
-#endif // RECEPCJONISTKA_H
+extern Recepcjonistka recepcjonistka;
+#endif
