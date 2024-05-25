@@ -15,6 +15,7 @@ public:
     void wyswietlLekarzy() const; //wyswietla liste lekarzy
     void dodajPacjenta(Pacjent *pacjent); //dodaje pacjenta do tablicy pacjentow
     Pacjent *znajdzPacjenta(unsigned long long pesel); //znajduje pacjenta po peselu
+    Lekarz* znajdzLekarza(int id); //znajduje lekarza po id
     const vector<Lekarz *> &getLekarze() const; //zwraca tablice lekarzy
     void displayTerminyLekarzy() const; //wyswietla terminy lekarzy
 };

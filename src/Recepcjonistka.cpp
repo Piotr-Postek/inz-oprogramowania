@@ -44,6 +44,15 @@ Pacjent *Recepcjonistka::znajdzPacjenta(unsigned long long pesel) {
     return nullptr;
 }
 
+Lekarz *Recepcjonistka::znajdzLekarza(int id) {
+    for(const auto &lekarz : lekarze) {
+        if(lekarz->getIDLekarza() == id) {
+            return lekarz;
+        }
+    }
+}
+
+
 void Recepcjonistka::dodajPacjenta(Pacjent *pacjent) {
     pacjenci.push_back(pacjent);
     cout << "Pacjent " << pacjent->getImie() << " " << pacjent->getNazwisko() << " zostal dodany.\n";

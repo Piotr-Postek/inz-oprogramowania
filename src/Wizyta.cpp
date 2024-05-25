@@ -58,3 +58,8 @@ void Wizyta::pokazSkierowania() const {
         skierowanie->wyswietlSkierowanie();
     }
 }
+
+void Wizyta::zmienStatus(char statusWizyty) {
+    status = statusWizyty;
+}
+

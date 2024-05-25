@@ -10,6 +10,8 @@ class Skierowanie;
 
 using namespace std;
 
+class Lekarz;
+
 class Wizyta {
 private:
     Termin termin;
@@ -33,6 +35,8 @@ public:
     void pokazRecepty() const; //wyswietla recepty
 
     void pokazSkierowania() const; //wyswietla skierowania
+
+    void zmienStatus(char status); //zmienia status wizyty
 
     int getKoszt() const { return koszt; } //zwraca koszt wizyty
     string getTerminWizyty() const { return termin.getTermin(); } //zwraca termin wizyty

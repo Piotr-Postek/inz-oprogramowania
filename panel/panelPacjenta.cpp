@@ -80,6 +80,7 @@ for(int i = 0; i < 3; i++) {
                     // umowienie wizyty i usuniecie terminu z listy terminow lekarza
                     Wizyta* nowaWizyta = new Wizyta(wybranyTermin, wybranyLekarz, 'N', 0);
                     pacjent->umowWizyte(nowaWizyta);
+
                     wybranyLekarz->usunTermin(tWybor);
 
                     break;

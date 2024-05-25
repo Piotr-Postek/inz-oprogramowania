@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 Lekarz::Lekarz(string imie, string nazwisko, string specjalizacja, int IDLekarza, int gabinet)
     : imie(imie), nazwisko(nazwisko), specjalizacja(specjalizacja), IDLekarza(IDLekarza), gabinet(gabinet) {
 }
@@ -24,6 +25,19 @@ void Lekarz::wyswietlTerminy() const {
     }
 }
 
+void Lekarz::addWizyta(Wizyta *wizyta) {
+    wizyty.push_back(wizyta);
+}
+
+void Lekarz::wystwietlWizyty() const{
+    int i = 1;
+    for (const auto &wizyta: wizyty) {
+        cout << i << ") ";
+        wizyta->pokazWizyte();
+        i++;
+    }
+}
+
 void Lekarz::usunTermin(int pos) {
     if (pos < 1 || pos > terminy.size()) {
         cout << "Niepoprawna pozycja.\n";
@@ -31,3 +45,10 @@ void Lekarz::usunTermin(int pos) {
     }
     terminy.erase(terminy.begin() + (pos - 1));
 }
+
+
+void Lekarz::usunWizyte(int id) {
+        wizyty.erase(wizyty.begin()+(id-1));
+}
+
+

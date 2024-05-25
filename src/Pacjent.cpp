@@ -17,6 +17,7 @@ void Pacjent::wyswietlDane() {
 
 int Pacjent::umowWizyte(Wizyta *wizyta) {
     wizyty.push_back(wizyta);
+    wizyta->getLekarzWizyty()->addWizyta(wizyta);
     return 0;
 }
 
@@ -30,7 +31,8 @@ void Pacjent::odwolajWizyte(int pozycja) {
     Termin termin = wizyta->getTerminWizyty();
     Lekarz *lekarz = wizyta->getLekarzWizyty();
 
-    lekarz->dodajTermin(termin);
+    lekarz->dodajTermin(termin);\
+    lekarz->usunWizyte(pozycja);
 
     // usunięcie wizyty z listy wizyt pacjenta
     wizyty.erase(wizyty.begin() + pozycja - 1);

@@ -13,7 +13,9 @@
 
 using namespace std;
 
-void initDefaultData() {
+
+int main() {
+
     // Stworzenie wektora terminow
     vector<Termin> terminArray = {
         Termin("2024-05-28 12:00"),
@@ -59,12 +61,6 @@ void initDefaultData() {
     KartaPacjenta *kartaPacjenta = new KartaPacjenta[]{
         KartaPacjenta(&pacjentArray[1], "1990-01-01", "Warsaw", "Warsaw", 123456789)
     };
-}
-
-int main() {
-
-    // inicializacja programu i załadnowanie danych
-    initDefaultData();
 
     // // Create Recepta
     // //Recepta recepta(&wizyta, "Paracetamol", 20, "500mg");
