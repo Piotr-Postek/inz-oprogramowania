@@ -58,59 +58,8 @@ int main() {
         }
     }
     // dodanie karty pacjenta
-    KartaPacjenta *kartaPacjenta = new KartaPacjenta[]{
-        KartaPacjenta(&pacjentArray[1], "1990-01-01", "Warsaw", "Warsaw", 123456789)
-    };
+    KartaPacjenta *kartaPacjenta = new KartaPacjenta(&pacjentArray[1], "1990-01-01", "Warsaw", "Warsaw", 123456789);
 
-    // // Create Recepta
-    // //Recepta recepta(&wizyta, "Paracetamol", 20, "500mg");
-    //
-    // for (int i = 0; i < 3; i++) {
-    //     Recepta recepta(&wizyta[i], "Paracetamol", 20, "500mg");
-    // }
-    //
-    //
-    // // Create Skierowanie
-    // Skierowanie skierowanie(&lekarz[2], &pacjent, "RTG klatki piersiowej");
-    //
-    // // // Recepcjonistka actions
-    // // Recepcjonistka recepcjonistka;
-    // // recepcjonistka.dodajLekarza();
-    // // recepcjonistka.usunLekarza();
-    // // recepcjonistka.rozliczenieWizyty();
-    //
-    // // Wizyta actions
-    // // wizyta.wystawRecepte();
-    // // wizyta.wystawSkierowanie();
-    // // wizyta.wystawRachunek();
-    // // wizyta.pokazWizyte(&pacjent);
-    //
-    // // Display all elements
-    // // cout << "Pacjent details:" << endl;
-    // // pacjent.wyswietlDane();
-    // //
-    // // cout << "Lekarz details:" << endl;
-    // // lekarz.wyswietlDane();
-    //
-    // // cout << "Wizyta details:" << endl;
-    // // wizyta.pokazWizyte(&pacjent);
-    //
-    // // pacjent.sprawdzWizyte();
-    //
-    // // cout << "Termin array details:" << endl;
-    // // displayTerminArray(terminArray);
-    //
-    // // Demonstrate wystawRecepte
-    // // cout << "Wystawianie recepty dla Wizyta1:" << endl;
-    // // wizyta[0].wystawRecepte();
-    // wizyta[0].wystawSkierowanie();
-    //
-    // recepcjonistka.wyswietlLekarzy();
-    //
-    // recepcjonistka.usunLekarza(&lekarz[1]);
-    // recepcjonistka.wyswietlLekarzy();
-    //
-    // recepcjonistka.rozliczenieWizyty(&wizyta[0]);
 
     // zmienne lokalne programu
     bool pendingProgram = true;

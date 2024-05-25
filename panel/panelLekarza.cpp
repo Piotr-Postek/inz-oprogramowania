@@ -52,6 +52,21 @@ for(int i = 0; i < 3; i++) {
                             cout << "Podaj koszt wizyty: ";
                             cin >> koszt;
                             wizyta->wystawRachunek(koszt);
+                            cout << "Czy wystawic recepte? (T/N)" << endl;
+                            char recepta;
+                            cin >> recepta;
+                            if(recepta == 'T') {
+                                wizyta->wystawRecepte();
+                            }
+                            cout << "Czy wystawic skierowanie? (T/N)" << endl;
+                            char skierowanie;
+                            cin >> skierowanie;
+                            if(skierowanie == 'T') {
+                                cout << "Podaj badanie: ";
+                                string badanie;
+                                cin >> badanie;
+                                wizyta->wystawSkierowanie(badanie);
+                            }
                             lekarz->usunWizyte(wWybor);
                             break;
                         }
