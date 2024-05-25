@@ -30,3 +30,18 @@
 *.exe
 *.out
 *.app
+
+# Config files
+.vscode
+
+# UML files
+VPProjects/*vpp.*
+
+# CMake files
+src/cmake*
+
+# idea
+.idea
+
+# Build
+build
