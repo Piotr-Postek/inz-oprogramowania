@@ -26,12 +26,7 @@ void Wizyta::wystawRecepte() {
     recepty.push_back(recepta);
 }
 
-void Wizyta::wystawSkierowanie() {
-    //Skierowanie(Lekarz* lekarz, Pacjent* pacjent, string badanie);
-    string badanie;
-    cout << "Podaj nazwę badania: ";
-    cin >> badanie;
-
+void Wizyta::wystawSkierowanie(string badanie) {
     Skierowanie *skierowanie = new Skierowanie(lekarz, badanie);
     skierowanie->wyswietlSkierowanie();
     skierowania.push_back(skierowanie);

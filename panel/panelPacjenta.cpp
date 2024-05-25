@@ -15,7 +15,7 @@ void panelPacjenta() {
     bool processing = true;
 
     cout << "Panel pacjenta" << endl;
-    cout << "Podaj pesel aby się zalogować: ";
+    cout << "Podaj pesel aby się zalogowac: ";
 // Pętla programu
 for(int i = 0; i < 3; i++) {
     cin >> pesel;
@@ -87,7 +87,7 @@ for(int i = 0; i < 3; i++) {
                 }
                 case 6: {
                     // Odwolaj wizyte
-                    cout << "Wybierz wizytę do usunięcia:\n";
+                    cout << "Wybierz wizytę do usuniecia:\n";
                     pacjent->sprawdzWizyte();
                     int pozycja = 0;
                     cin >> pozycja;
@@ -104,11 +104,11 @@ for(int i = 0; i < 3; i++) {
         }
     }
     else if(i == 2){
-        cout << "Nie udało się zalogować. Powrót do menu głównego" << endl;
+        cout << "Nie udalo sie zalogowac. Powrot do menu głownego" << endl;
         break;
     }
     else {
-        cout << "Nie znaleziono pacjenta o podanym peselu. Spróbuj ponownie" << endl;
+        cout << "Nie znaleziono pacjenta o podanym peselu. Sprobuj ponownie" << endl;
     }
 }
 }

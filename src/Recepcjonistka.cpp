@@ -18,7 +18,7 @@ void Recepcjonistka::usunLekarza(Lekarz *lekarz) {
         lekarze.erase(it);
         cout << "Lekarz " << lekarz->getImie() << " " << lekarz->getNazwisko() << " zostal usuniety.\n";
     } else {
-        cout << "Lekarz nie został znaleziony.\n";
+        cout << "Lekarz nie zostal znaleziony.\n";
     }
 }
 

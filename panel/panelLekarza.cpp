@@ -13,7 +13,7 @@ void panelLekarza() {
     bool processing = true;
 
     cout << "Panel Lekarza" << endl;
-    cout << "Podaj ID aby się zalogować: ";
+    cout << "Podaj ID aby sie zalogowac: ";
 // Pętla programu
 for(int i = 0; i < 3; i++) {
     cin >> id;
@@ -81,7 +81,10 @@ for(int i = 0; i < 3; i++) {
                     cin >> sWybor;
                     for(auto& wizyta: lekarz->getWizyta()) {
                         if(i == sWybor-1) {
-                            wizyta->wystawSkierowanie();
+                            cout << "Podaj badanie: ";
+                            string badanie;
+                            cin >> badanie;
+                            wizyta->wystawSkierowanie(badanie);
                             break;
                         }
                     }
@@ -114,11 +117,11 @@ for(int i = 0; i < 3; i++) {
         }
     }
     else if(i == 2){
-        cout << "Nie udało się zalogować. Powrót do menu głównego" << endl;
+        cout << "Nie udało sie zalogowac. Powrót do menu głownego" << endl;
         break;
     }
     else {
-        cout << "Nie znaleziono pacjenta o podanym peselu. Spróbuj ponownie" << endl;
+        cout << "Nie znaleziono pacjenta o podanym peselu. Sprobuj ponownie" << endl;
     }
 }
 }

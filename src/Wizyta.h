@@ -26,7 +26,7 @@ public:
 
     void wystawRecepte(); //wystawia recepte
 
-    void wystawSkierowanie(); //wystawia skierowanie
+    void wystawSkierowanie(string badanie); //wystawia skierowanie
 
     void wystawRachunek(); //wystawia rachunek
 

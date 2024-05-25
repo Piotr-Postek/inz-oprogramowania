@@ -2,6 +2,7 @@
 
 #include "panelRecepcjonistki.h"
 
+#include "KartaPacjenta.h"
 #include "Lekarz.h"
 #include "Recepcjonistka.h"
 #include "Wizyta.h"
@@ -22,7 +23,8 @@ void panelRecepcjonistki() {
         cout << "5. Rozlicz wizyte " <<endl;
         cout << "6. Wyswietl terminy lekarzy" <<endl;
         cout << "7. Wyswietl pacjentow " <<endl;
-        cout << "8. Wyloguj" <<endl;
+        cout << "8. Dodaj karte pacjenta" <<endl;
+        cout << "9. Wyloguj" <<endl;
 
         cout << "Wybierz opcje: ";
         cin>>wybor;
@@ -108,7 +110,27 @@ void panelRecepcjonistki() {
             case 7:
                 recepcjonistka.wyswietlPacjentow();
                 break;
-            case 8:
+            case 8: {
+                cout << "Podaj pesel pacjenta: ";
+                unsigned long long pesel;
+                cin >> pesel;
+                cout << "Podaj date urodzenia pacjenta: ";
+                string dataUrodzenia;
+                cin >> dataUrodzenia;
+                cout << "Podaj miasto zamieszkania pacjenta: ";
+                string miastoZamieszkania;
+                cin >> miastoZamieszkania;
+                cout << "Podaj adres zamieszkania pacjenta: ";
+                string adresZamieszkania;
+                cin >> adresZamieszkania;
+                cout << "Podaj numer telefonu pacjenta: ";
+                int numerTelefonu;
+                cin >> numerTelefonu;
+
+                KartaPacjenta newKarta(recepcjonistka.znajdzPacjenta(pesel), dataUrodzenia, miastoZamieszkania, adresZamieszkania, numerTelefonu);
+                break;
+            }
+            case 9:
 
                 processing=false;
                 break;
