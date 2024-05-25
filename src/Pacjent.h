@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+
 using namespace std;
 
 class Wizyta;
@@ -14,6 +15,7 @@ private:
     string nazwisko;
     unsigned long long PESEL;
     vector<Wizyta *> wizyty;
+
 
 public:
     Pacjent() {

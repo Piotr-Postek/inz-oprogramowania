@@ -23,6 +23,7 @@ void Wizyta::wystawRecepte() {
 
     Recepta *recepta = new Recepta(this, lek, ilosc, dawka);
     recepta->wyswietlRecepte();
+    recepty.push_back(recepta);
 }
 
 void Wizyta::wystawSkierowanie() {
@@ -33,6 +34,7 @@ void Wizyta::wystawSkierowanie() {
 
     Skierowanie *skierowanie = new Skierowanie(lekarz, badanie);
     skierowanie->wyswietlSkierowanie();
+    skierowania.push_back(skierowanie);
 }
 
 void Wizyta::wystawRachunek() {
@@ -63,3 +65,15 @@ void Wizyta::zmienStatus(char statusWizyty) {
     status = statusWizyty;
 }
 
+void Wizyta::dodajRecepte(Recepta* recepta) {
+    recepty.push_back(recepta);
+    std::cout << "Recepta została dodana do wizyty.\n";
+}
+
+void Wizyta::changeStatus(char statusWizyty) {
+    status = statusWizyty;
+}
+
+void Wizyta::wystawRachunek(int kosztWizyty) {
+    koszt = kosztWizyty;
+}

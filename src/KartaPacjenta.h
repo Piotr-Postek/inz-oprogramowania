@@ -1,8 +1,11 @@
 #ifndef KARTAPACJENTA_H
 #define KARTAPACJENTA_H
 
+#include <iostream>
 #include <string>
 #include "Pacjent.h"
+
+class Pacjent;
 
 class KartaPacjenta {
 private:

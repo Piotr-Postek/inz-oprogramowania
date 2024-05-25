@@ -41,6 +41,10 @@ public:
     int getKoszt() const { return koszt; } //zwraca koszt wizyty
     string getTerminWizyty() const { return termin.getTermin(); } //zwraca termin wizyty
     Lekarz *getLekarzWizyty() const { return lekarz; } //zwraca lekarza wizyty
+    bool getStatus() const { return status; } //zwraca status wizyty
+    void changeStatus(char statusWizyty); //zmienia status wizyty
+    void wystawRachunek(int kosztWizyty); //wystawia rachunek
+    void dodajRecepte(Recepta *recepta); //dodaje recepte do wektora recept
 };
 
 #endif

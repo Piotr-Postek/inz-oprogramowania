@@ -19,8 +19,8 @@ private:
     int gabinet;
     vector<Termin> terminy;
     vector<Wizyta*> wizyty;
-
 public:
+
     Lekarz(string imie, string nazwisko, string specjalizacja, int IDLekarza, int gabinet); //konstruktor
     void wyswietlDane() const; //wyswietla dane lekarza
     void dodajTermin(Termin termin); //dodaje termin do wektora terminow
@@ -28,6 +28,7 @@ public:
     string getImie() const { return imie; } //zwraca imie lekarza
     string getNazwisko() const { return nazwisko; } //zwraca nazwisko lekarza
     string getSpecjalizacja() const { return specjalizacja; } //zwraca specjalizacje lekarza
+    const vector<Wizyta*> &getWizyta() const { return wizyty; } //zwraca wektor wizyt
     int getIDLekarza() const { return IDLekarza; } //zwraca ID lekarza
     const vector<Termin> &getTerminy() const { return terminy; } //zwraca wektor terminow
     void wyswietlTerminy() const; //wyswietla terminy lekarza

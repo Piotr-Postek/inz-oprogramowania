@@ -3,6 +3,7 @@
 #include "Recepcjonistka.h"
 
 #include "Lekarz.h"
+#include "Wizyta.h"
 
 using namespace std;
 
@@ -39,24 +40,69 @@ for(int i = 0; i < 3; i++) {
                         lekarz->wystwietlWizyty();
                         break;
                 case 2: {
-                    int wWybor = 0;
+                    int wWybor = 0, i = 0;
                     // Zakończ wizyte
                     cout << "wybierz wizyte: (IDwizyty)" << endl;
                     lekarz->wystwietlWizyty();
                     cin >> wWybor;
-                    lekarz->usunWizyte(wWybor);
+                    for(auto& wizyta: lekarz->getWizyta()) {
+                        if(i == wWybor-1) {
+                            int koszt;
+                            wizyta->changeStatus('Z');
+                            cout << "Podaj koszt wizyty: ";
+                            cin >> koszt;
+                            wizyta->wystawRachunek(koszt);
+                            lekarz->usunWizyte(wWybor);
+                            break;
+                        }
+                    }
                     cout << "Wizyta zostala zakonczona" << endl;
                         break;
                 }
                 case 3: {
-
+                    // Wystaw recepte
+                    int wWybor = 0, i = 0;
+                    cout << "wybierz wizyte: (IDwizyty)" << endl;
+                    lekarz->wystwietlWizyty();
+                    cin >> wWybor;
+                    for(auto& wizyta: lekarz->getWizyta()) {
+                        if(i == wWybor-1) {
+                            wizyta->wystawRecepte();
+                            break;
+                        }
+                    }
+                        break;
                 }
-                case 4:
+                case 4: {
                     // wystaw skierowanie
-                        break;
-                case 5:
+                    int sWybor = 0, i = 0;
+                    cout << "wybierz wizyte: (IDwizyty)" << endl;
+                    lekarz->wystwietlWizyty();
+                    cin >> sWybor;
+                    for(auto& wizyta: lekarz->getWizyta()) {
+                        if(i == sWybor-1) {
+                            wizyta->wystawSkierowanie();
+                            break;
+                        }
+                    }
+                    break;
+                }
+                case 5: {
                     // Odwolaj wizyte
-                        break;
+                    cout << "Wybierz wizyte ";
+                    lekarz->wystwietlWizyty();
+                    int sWybor = 0;
+                    cin >> sWybor;
+                    for(auto& wizyta: lekarz->getWizyta()) {
+                        if(i == sWybor-1) {
+                            wizyta->changeStatus('X');
+                            break;
+                        }
+                    }
+                    lekarz->usunWizyte(sWybor);
+                    cout << "Wizyta zostala odwolana" << endl;
+                    break;
+                }
                 case 6: {
                     // zakoncz program
                     processing = false;
