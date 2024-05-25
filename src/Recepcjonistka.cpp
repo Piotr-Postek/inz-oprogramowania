@@ -44,6 +44,13 @@ Pacjent *Recepcjonistka::znajdzPacjenta(unsigned long long pesel) {
     return nullptr;
 }
 
+void Recepcjonistka::wyswietlPacjentow() const {
+    cout << "Lista pacjentow\n";
+    for(const auto &pacjent:pacjenci) {
+        cout << "Imie: " << pacjent->getImie() << " Nazwisko: " << pacjent->getNazwisko() << " PESEL: " << pacjent->getPESEL() <<"\n";
+    }
+}
+
 Lekarz *Recepcjonistka::znajdzLekarza(int id) {
     for(const auto &lekarz : lekarze) {
         if(lekarz->getIDLekarza() == id) {

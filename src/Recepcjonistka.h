@@ -18,6 +18,7 @@ public:
     Lekarz* znajdzLekarza(int id); //znajduje lekarza po id
     const vector<Lekarz *> &getLekarze() const; //zwraca tablice lekarzy
     void displayTerminyLekarzy() const; //wyswietla terminy lekarzy
+    void wyswietlPacjentow() const; //pokazuje pacjentow
 };
 
 extern Recepcjonistka recepcjonistka;

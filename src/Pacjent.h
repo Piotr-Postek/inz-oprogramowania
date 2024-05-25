@@ -5,6 +5,9 @@
 #include <vector>
 
 
+//#include "KartaPacjenta.h"
+
+
 using namespace std;
 
 class Wizyta;
@@ -15,6 +18,7 @@ private:
     string nazwisko;
     unsigned long long PESEL;
     vector<Wizyta *> wizyty;
+    //KartaPacjenta *kartaPacjenta=nullptr;
 
 
 public:
@@ -31,6 +35,7 @@ public:
     string getNazwisko() const { return nazwisko; } //zwraca nazwisko pacjenta
     string getImie() const { return imie; } //zwraca imie pacjenta
     unsigned long long getPESEL() const { return PESEL; } //zwraca PESEL pacjenta
+
 };
 
 extern Pacjent pacjent;
