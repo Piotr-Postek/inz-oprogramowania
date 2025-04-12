@@ -2,7 +2,7 @@
 
 #include "panelPacjenta.h"
 #include "Recepcjonistka.h"
-#include "Pacjent.h"
+#include "Zwierze.h"
 #include "Wizyta.h"
 
 using namespace std;
@@ -20,8 +20,8 @@ void panelPacjenta() {
 for(int i = 0; i < 3; i++) {
     cin >> pesel;
     // weryfikacja czy istnieje pacjent o podanym peselu
-    Pacjent* pacjent = recepcjonistka.znajdzPacjenta(pesel);
-    if(pacjent != nullptr) {
+    Zwierze* zwierze = recepcjonistka.znajdzPacjenta(pesel);
+    if(zwierze != nullptr) {
         i = 3;  // Jeżeli istnieje to pętla wykona się jedynie raz
 
 
@@ -40,19 +40,19 @@ for(int i = 0; i < 3; i++) {
             switch(wybor) {
                 case 1:
                     // Wyswietl wizyty
-                        pacjent->sprawdzWizyte();
+                        zwierze->sprawdzWizyte();
                         break;
                 case 2:
                     // Wyswietl recepty
-                        pacjent->sprawdzRecepte();
+                        zwierze->sprawdzRecepte();
                         break;
                 case 3:
                     // Wyswietl skierowania
-                        pacjent->sprawdzSkierowanie();
+                        zwierze->sprawdzSkierowanie();
                         break;
                 case 4:
                     // Wyswietl dane osobowe
-                        pacjent->wyswietlDane();
+                        zwierze->wyswietlDane();
                         break;
                 case 5: {
                     // Umow wizyte
@@ -79,7 +79,7 @@ for(int i = 0; i < 3; i++) {
 
                     // umowienie wizyty i usuniecie terminu z listy terminow lekarza
                     Wizyta* nowaWizyta = new Wizyta(wybranyTermin, wybranyLekarz, 'N', 0);
-                    pacjent->umowWizyte(nowaWizyta);
+                    zwierze->umowWizyte(nowaWizyta);
 
                     wybranyLekarz->usunTermin(tWybor);
 
@@ -88,10 +88,10 @@ for(int i = 0; i < 3; i++) {
                 case 6: {
                     // Odwolaj wizyte
                     cout << "Wybierz wizytę do usuniecia:\n";
-                    pacjent->sprawdzWizyte();
+                    zwierze->sprawdzWizyte();
                     int pozycja = 0;
                     cin >> pozycja;
-                    pacjent->odwolajWizyte(pozycja);
+                    zwierze->odwolajWizyte(pozycja);
                     break;
                 }
                 case 7:

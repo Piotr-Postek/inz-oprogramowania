@@ -1,27 +1,29 @@
 #include <iostream>
-#include "Pacjent.h"
+#include "Zwierze.h"
 #include "Wizyta.h"
 #include <algorithm>
+#include "WizytaManager.h"
 
 using namespace std;
 
-Pacjent pacjent;
+Zwierze zwierze;
 
-Pacjent::Pacjent(string imie, string nazwisko, unsigned long long PESEL)
-    : imie(imie), nazwisko(nazwisko), PESEL(PESEL) {
+Zwierze::Zwierze(string imie, long numerID, unsigned long long PESEL)
+    : imie(imie), numerID(numerID), PESEL(PESEL) {
 }
 
-void Pacjent::wyswietlDane() {
-    cout << "Dane pacjenta: " << this->imie << " " << this->nazwisko << ", " << this->PESEL << endl;
+void Zwierze::wyswietlDane() {
+    cout << "Dane zwierzecia: " << this->imie << " " << this->numerID << ", " << this->PESEL << endl;
 }
 
-int Pacjent::umowWizyte(Wizyta *wizyta) {
+int Zwierze::umowWizyte(Wizyta *wizyta) {
     wizyty.push_back(wizyta);
     wizyta->getLekarzWizyty()->addWizyta(wizyta);
+    WizytaManager::getInstance().dodajWizyte(*wizyta);
     return 0;
 }
 
-void Pacjent::odwolajWizyte(int pozycja) {
+void Zwierze::odwolajWizyte(int pozycja) {
     if (pozycja < 1 || pozycja > wizyty.size()) {
         cout << "Niepoprawna pozycja.\n";
         return;
@@ -39,8 +41,8 @@ void Pacjent::odwolajWizyte(int pozycja) {
     cout << "Wizyta została odwołana.\n";
 }
 
-void Pacjent::sprawdzWizyte() const {
-    cout << "Wizyty for Pacjent " << imie << " " << nazwisko << ":\n";
+void Zwierze::sprawdzWizyte() const {
+    cout << "Wizyty for Zwierze " << imie << " " << numerID << ":\n";
     int index = 1;
     for (const auto &wizyta: wizyty) {
         cout << index << ") ";
@@ -49,33 +51,33 @@ void Pacjent::sprawdzWizyte() const {
     }
 }
 
-void Pacjent::sprawdzRecepte() {
-    cout << "Recepty for Pacjent " << imie << " " << nazwisko << ":\n";
+void Zwierze::sprawdzRecepte() {
+    cout << "Recepty for Zwierze " << imie << " " << numerID << ":\n";
     for (const auto &wizyta: wizyty) {
         wizyta->pokazRecepty();
     }
 }
 
-void Pacjent::sprawdzSkierowanie() {
-    cout << "Skierowania for Pacjent " << imie << " " << nazwisko << ":\n";
+void Zwierze::sprawdzSkierowanie() {
+    cout << "Skierowania for Zwierze " << imie << " " << numerID << ":\n";
     for (const auto &wizyta: wizyty) {
         wizyta->pokazSkierowania();
     }
 }
 
-void Pacjent::modyfikujDane() {
-    string noweImie, noweNazwisko;
-    long nowyPESEL;
+void Zwierze::modyfikujDane() {
+    string noweImie;
+    long nowyPESEL, noweID;
 
     cout << "Podaj nowe imię: ";
     cin >> noweImie;
-    cout << "Podaj nowe nazwisko: ";
-    cin >> noweNazwisko;
+    cout << "Podaj nowe ID: ";
+    cin >> noweID;
     cout << "Podaj nowy PESEL: ";
     cin >> nowyPESEL;
 
     imie = noweImie;
-    nazwisko = noweNazwisko;
+    numerID = noweID;
     PESEL = nowyPESEL;
 
     cout << "Dane pacjenta zostały zmodyfikowane.\n";

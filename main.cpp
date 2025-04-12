@@ -1,14 +1,16 @@
 #include <iostream>
 #include <vector>
 
-#include "Pacjent.h"
-#include "Lekarz.h"
-#include "Recepcjonistka.h"
-#include "Termin.h"
-#include "KartaPacjenta.h"
+#include "src/Zwierze.h"
+#include "src/Lekarz.h"
+#include "src/Recepcjonistka.h"
+#include "src/Termin.h"
+#include "src/KartaZwierzecia.h"
+#include "src/WizytaManager.h"
 #include "panel/panelPacjenta.h"
 #include "panel/panelLekarza.h"
 #include "panel/panelRecepcjonistki.h"
+
 
 
 using namespace std;
@@ -30,11 +32,9 @@ int main() {
     };
 
     // stworzenie wektora pacjetow
-    vector<Pacjent> pacjentArray{
-        Pacjent("Jan", "Kowalski", 12),
-        Pacjent("Joanna", "Kowalska", 34),
-        Pacjent("Anna", "Nowak", 56),
-        Pacjent("Pawel", "Martyniuk", 78)
+    vector<Zwierze> pacjentArray{
+            Zwierze("Jan Kowalski", 1234, 1234),
+            Zwierze("Anna Kowalski", 1235, 1235)
     };
     // dodanie pacjentow do tablicy wektorow recepcjonistki
     for (auto &p: pacjentArray) {
@@ -42,9 +42,9 @@ int main() {
     }
     // stworzenie wektora lekarzy
     vector<Lekarz> lekarzArray{
-        Lekarz("Anna", "Nowak", "Dermatolog", 1, 101),
-        Lekarz("Jan", "Kowalski", "Kardiolog", 2, 102),
-        Lekarz("Joanna", "Kowalska", "Ortopeda", 3, 103)
+        Lekarz("Anna", "Nowak", "Weterynarz psi", 1, 101),
+        Lekarz("Jan", "Kowalski", "Inseminator", 2, 102),
+        Lekarz("Joanna", "Kowalska", "Weterynarz zwierzat chodowlanych", 3, 103)
     };
     // dodanie lekarzy do tablicy wektorow recepcjonistki
     for (auto &l: lekarzArray) {
@@ -58,7 +58,14 @@ int main() {
         }
     }
     // dodanie karty pacjenta
-    KartaPacjenta *kartaPacjenta = new KartaPacjenta(&pacjentArray[1], "1990-01-01", "Warsaw", "Warsaw", 123456789);
+    KartaZwierzecia *kartaPacjenta = new KartaZwierzecia(&pacjentArray[1], "1990-01-01", "Biegunka", 123456789);
+
+
+
+//    WizytaManager::getInstance().dodajWizyte(w1);
+//    WizytaManager::getInstance().dodajWizyte(w2);
+
+
 
 
     // zmienne lokalne programu
@@ -68,7 +75,7 @@ int main() {
     // pętla główna programu
     while (pendingProgram) {
         cout << "Wybierz panel: " << endl;
-        cout << "1. Pacjent" << endl;
+        cout << "1. Zwierze" << endl;
         cout << "2. Lekarz" << endl;
         cout << "3. Recepcjonistka" << endl;
         cout << "4. Wyjscie" << endl;

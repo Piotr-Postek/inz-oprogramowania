@@ -2,7 +2,7 @@
 
 #include "panelRecepcjonistki.h"
 
-#include "KartaPacjenta.h"
+#include "KartaZwierzecia.h"
 #include "Lekarz.h"
 #include "Recepcjonistka.h"
 #include "Wizyta.h"
@@ -24,7 +24,8 @@ void panelRecepcjonistki() {
         cout << "6. Wyswietl terminy lekarzy" <<endl;
         cout << "7. Wyswietl pacjentow " <<endl;
         cout << "8. Dodaj karte pacjenta" <<endl;
-        cout << "9. Wyloguj" <<endl;
+        cout << "9. Pokaz wszystkie wizyty" <<endl;
+        cout << "10. Wyloguj" <<endl;
 
         cout << "Wybierz opcje: ";
         cin>>wybor;
@@ -68,17 +69,17 @@ void panelRecepcjonistki() {
             }
             case 4: {
                 //dodaj pacjenta
-                string imie, nazwisko;
-                unsigned long long pesel;
+                string imie;
+                unsigned long long pesel, numerID;
 
                 cout << "Podaj imie pacjenta: ";
                 cin >> imie;
-                cout << "Podaj nazwisko pacjenta: ";
-                cin >> nazwisko;
+                cout << "Podaj ID pacjenta: ";
+                cin >> numerID;
                 cout << "Podaj PESEL pacjenta: ";
                 cin >> pesel;
 
-                Pacjent newpacjent = Pacjent(imie, nazwisko, pesel);
+                Zwierze newpacjent = Zwierze(imie, numerID, pesel);
                 recepcjonistka.dodajPacjenta(&newpacjent);
                 break;
             }
@@ -114,9 +115,6 @@ void panelRecepcjonistki() {
                 cout << "Podaj pesel pacjenta: ";
                 unsigned long long pesel;
                 cin >> pesel;
-                cout << "Podaj date urodzenia pacjenta: ";
-                string dataUrodzenia;
-                cin >> dataUrodzenia;
                 cout << "Podaj miasto zamieszkania pacjenta: ";
                 string miastoZamieszkania;
                 cin >> miastoZamieszkania;
@@ -126,11 +124,18 @@ void panelRecepcjonistki() {
                 cout << "Podaj numer telefonu pacjenta: ";
                 int numerTelefonu;
                 cin >> numerTelefonu;
+                cout << "Podaj choroby pacjenta: ";
+                string choroby;
+                cin >> choroby;
 
-                KartaPacjenta newKarta(recepcjonistka.znajdzPacjenta(pesel), dataUrodzenia, miastoZamieszkania, adresZamieszkania, numerTelefonu);
+                KartaZwierzecia newKarta(recepcjonistka.znajdzPacjenta(pesel), miastoZamieszkania, adresZamieszkania, numerTelefonu);
                 break;
             }
-            case 9:
+            case 9:{
+              recepcjonistka.pokazWizyty();
+              break;
+            }
+            case 10:
 
                 processing=false;
                 break;

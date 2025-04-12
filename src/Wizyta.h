@@ -2,7 +2,7 @@
 #define WIZYTA_H
 
 #include "Lekarz.h"
-#include "Pacjent.h"
+#include "Zwierze.h"
 #include "Termin.h"
 
 class Recepta;

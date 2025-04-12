@@ -4,6 +4,7 @@
 
 #include "Recepcjonistka.h"
 #include "Lekarz.h"
+#include "WizytaManager.h"
 
 Recepcjonistka recepcjonistka;
 
@@ -35,7 +36,7 @@ void Recepcjonistka::wyswietlLekarzy() const {
     }
 }
 
-Pacjent *Recepcjonistka::znajdzPacjenta(unsigned long long pesel) {
+Zwierze *Recepcjonistka::znajdzPacjenta(unsigned long long pesel) {
     for (const auto &pacjent: pacjenci) {
         if (pacjent->getPESEL() == pesel) {
             return pacjent;
@@ -47,7 +48,7 @@ Pacjent *Recepcjonistka::znajdzPacjenta(unsigned long long pesel) {
 void Recepcjonistka::wyswietlPacjentow() const {
     cout << "Lista pacjentow\n";
     for(const auto &pacjent:pacjenci) {
-        cout << "Imie: " << pacjent->getImie() << " Nazwisko: " << pacjent->getNazwisko() << " PESEL: " << pacjent->getPESEL() <<"\n";
+        cout << "Imie: " << pacjent->getImie() << "ID: " << pacjent->getID() << " PESEL: " << pacjent->getPESEL() <<"\n";
     }
 }
 
@@ -60,9 +61,9 @@ Lekarz *Recepcjonistka::znajdzLekarza(int id) {
 }
 
 
-void Recepcjonistka::dodajPacjenta(Pacjent *pacjent) {
+void Recepcjonistka::dodajPacjenta(Zwierze *pacjent) {
     pacjenci.push_back(pacjent);
-    cout << "Pacjent " << pacjent->getImie() << " " << pacjent->getNazwisko() << " zostal dodany.\n";
+    cout << "Zwierze " << pacjent->getImie() << " ID " << pacjent->getID() << " zostal dodany.\n";
 }
 
 const vector<Lekarz *> &Recepcjonistka::getLekarze() const {
@@ -73,4 +74,9 @@ void Recepcjonistka::displayTerminyLekarzy() const {
     for (const auto &lekarz: lekarze) {
         lekarz->wyswietlTerminy();
     }
+}
+
+void Recepcjonistka::pokazWizyty() const{
+    std::cout << "\n=== Wszystkie umówione wizyty ===" << std::endl;
+    WizytaManager::getInstance().wyswietlWszystkieWizyty();
 }

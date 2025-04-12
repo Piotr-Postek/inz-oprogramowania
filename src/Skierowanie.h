@@ -3,7 +3,7 @@
 
 #include <string>
 #include "Lekarz.h"
-#include "Pacjent.h"
+#include "Zwierze.h"
 
 class Skierowanie {
 private:

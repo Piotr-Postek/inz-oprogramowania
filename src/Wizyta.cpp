@@ -2,8 +2,10 @@
 #include "Wizyta.h"
 #include "Recepta.h"
 #include "Skierowanie.h"
+#include "Zwierze.h"
 
 using namespace std;
+
 
 Wizyta::Wizyta(Termin termin, Lekarz *lekarz, char status, int koszt)
     : termin(termin), lekarz(lekarz), status(status = 'N'), koszt(koszt = 0) {
