@@ -4,6 +4,7 @@
 #include "Recepcjonistka.h"
 #include "Zwierze.h"
 #include "Wizyta.h"
+#include "wizytaBulider.h"
 
 using namespace std;
 
@@ -78,8 +79,17 @@ for(int i = 0; i < 3; i++) {
                     Termin wybranyTermin = terminy[tWybor-1];
 
                     // umowienie wizyty i usuniecie terminu z listy terminow lekarza
-                    Wizyta* nowaWizyta = new Wizyta(wybranyTermin, wybranyLekarz, 'N', 0);
-                    zwierze->umowWizyte(nowaWizyta);
+                    //Wizyta* nowaWizyta = new Wizyta(wybranyTermin, wybranyLekarz, 'N', 0);
+                    //zwierze->umowWizyte(nowaWizyta);
+
+                    Wizyta nowaWizyta = WizytaBuilder()
+                            .setLekarz(wybranyLekarz)
+                            .setStatus('N')
+                            .setTermin(wybranyTermin)
+                            .build();
+
+
+                    zwierze->umowWizyte(&nowaWizyta);
 
                     wybranyLekarz->usunTermin(tWybor);
 

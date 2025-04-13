@@ -11,6 +11,7 @@ private:
 
 public:
     Termin(string termin); //konstruktor
+    Termin() : termin("01.01.2000 00:00:00") {}
 
     string getTermin() const;   //zwraca termin
 

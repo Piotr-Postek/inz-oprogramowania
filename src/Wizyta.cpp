@@ -8,8 +8,7 @@ using namespace std;
 
 
 Wizyta::Wizyta(Termin termin, Lekarz *lekarz, char status, int koszt)
-    : termin(termin), lekarz(lekarz), status(status = 'N'), koszt(koszt = 0) {
-}
+        : termin(termin), lekarz(lekarz), status(status), koszt(koszt) {}
 
 void Wizyta::wystawRecepte() {
     string lek;
@@ -73,4 +72,28 @@ void Wizyta::changeStatus(char statusWizyty) {
 
 void Wizyta::wystawRachunek(int kosztWizyty) {
     koszt = kosztWizyty;
+}
+
+void Wizyta::setTermin(const Termin &termin) {
+    Wizyta::termin = termin;
+}
+
+void Wizyta::setLekarz(Lekarz *lekarz) {
+    Wizyta::lekarz = lekarz;
+}
+
+void Wizyta::setStatus(char status) {
+    Wizyta::status = status;
+}
+
+void Wizyta::setKoszt(int koszt) {
+    Wizyta::koszt = koszt;
+}
+
+void Wizyta::setRecepty(const vector<Recepta *> &recepty) {
+    Wizyta::recepty = recepty;
+}
+
+void Wizyta::setSkierowania(const vector<Skierowanie *> &skierowania) {
+    Wizyta::skierowania = skierowania;
 }

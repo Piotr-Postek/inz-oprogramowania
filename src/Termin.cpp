@@ -3,6 +3,8 @@
 
 using namespace std;
 
+
+
 Termin::Termin(string termin)
     : termin(termin) {
 }

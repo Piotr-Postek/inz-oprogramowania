@@ -58,6 +58,7 @@ Lekarz *Recepcjonistka::znajdzLekarza(int id) {
             return lekarz;
         }
     }
+    return 0;
 }
 
 

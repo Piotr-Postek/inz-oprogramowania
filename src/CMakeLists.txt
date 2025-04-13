@@ -7,10 +7,10 @@ include_directories(../src)
 
 add_executable(inz-oprogramowania
         ../main.cpp
-        Pacjent.cpp
-        Pacjent.h
-        KartaPacjenta.cpp
-        KartaPacjenta.h
+        Zwierze.cpp
+        Zwierze.h
+        KartaZwierzecia.cpp
+        KartaZwierzecia.h
         Wizyta.cpp
         Wizyta.h
         Lekarz.cpp

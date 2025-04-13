@@ -22,6 +22,7 @@ private:
     vector<Skierowanie *> skierowania; //vector wskaznikow do obiektow klasy Skierowanie
 
 public:
+
     Wizyta(Termin termin, Lekarz *lekarz, char status, int koszt); //konstruktor
 
     void wystawRecepte(); //wystawia recepte
@@ -45,6 +46,13 @@ public:
     void changeStatus(char statusWizyty); //zmienia status wizyty
     void wystawRachunek(int kosztWizyty); //wystawia rachunek
     void dodajRecepte(Recepta *recepta); //dodaje recepte do wektora recept
+
+    void setTermin(const Termin &termin);
+    void setLekarz(Lekarz *lekarz);
+    void setStatus(char status);
+    void setKoszt(int koszt);
+    void setRecepty(const vector<Recepta *> &recepty);
+    void setSkierowania(const vector<Skierowanie *> &skierowania);
 };
 
 #endif
